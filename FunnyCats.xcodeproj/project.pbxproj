@@ -17,6 +17,7 @@
 		DB6344C82459CFD2004E2FA4 /* CatBreedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344C72459CFD2004E2FA4 /* CatBreedsTableViewController.swift */; };
 		DB6344CB2459D05C004E2FA4 /* CatBreedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344C92459D05C004E2FA4 /* CatBreedsTableViewCell.swift */; };
 		DB6344CC2459D05C004E2FA4 /* CatBreedsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB6344CA2459D05C004E2FA4 /* CatBreedsTableViewCell.xib */; };
+		DB6344CE2459D507004E2FA4 /* CatBreedsDataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344CD2459D507004E2FA4 /* CatBreedsDataBaseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		DB6344C72459CFD2004E2FA4 /* CatBreedsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedsTableViewController.swift; sourceTree = "<group>"; };
 		DB6344C92459D05C004E2FA4 /* CatBreedsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedsTableViewCell.swift; sourceTree = "<group>"; };
 		DB6344CA2459D05C004E2FA4 /* CatBreedsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatBreedsTableViewCell.xib; sourceTree = "<group>"; };
+		DB6344CD2459D507004E2FA4 /* CatBreedsDataBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedsDataBaseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				DB6344C72459CFD2004E2FA4 /* CatBreedsTableViewController.swift */,
 				DB6344C92459D05C004E2FA4 /* CatBreedsTableViewCell.swift */,
 				DB6344CA2459D05C004E2FA4 /* CatBreedsTableViewCell.xib */,
+				DB6344CD2459D507004E2FA4 /* CatBreedsDataBaseModel.swift */,
 			);
 			path = CatBreedsController;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				DB6344B82459B8C4004E2FA4 /* FunnyCats.xcdatamodeld in Sources */,
 				DB6344AE2459B8C4004E2FA4 /* AppDelegate.swift in Sources */,
 				DB6344B02459B8C4004E2FA4 /* SceneDelegate.swift in Sources */,
+				DB6344CE2459D507004E2FA4 /* CatBreedsDataBaseModel.swift in Sources */,
 				DB6344C52459C9CA004E2FA4 /* TapBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
