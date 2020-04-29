@@ -9,23 +9,29 @@
 /* Begin PBXBuildFile section */
 		DB6344AE2459B8C4004E2FA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344AD2459B8C4004E2FA4 /* AppDelegate.swift */; };
 		DB6344B02459B8C4004E2FA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344AF2459B8C4004E2FA4 /* SceneDelegate.swift */; };
-		DB6344B22459B8C4004E2FA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344B12459B8C4004E2FA4 /* ViewController.swift */; };
 		DB6344B52459B8C4004E2FA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6344B32459B8C4004E2FA4 /* Main.storyboard */; };
 		DB6344B82459B8C4004E2FA4 /* FunnyCats.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB6344B62459B8C4004E2FA4 /* FunnyCats.xcdatamodeld */; };
 		DB6344BA2459B8C6004E2FA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6344B92459B8C6004E2FA4 /* Assets.xcassets */; };
 		DB6344BD2459B8C6004E2FA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6344BB2459B8C6004E2FA4 /* LaunchScreen.storyboard */; };
+		DB6344C52459C9CA004E2FA4 /* TapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344C42459C9CA004E2FA4 /* TapBarController.swift */; };
+		DB6344C82459CFD2004E2FA4 /* CatBreedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344C72459CFD2004E2FA4 /* CatBreedsTableViewController.swift */; };
+		DB6344CB2459D05C004E2FA4 /* CatBreedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344C92459D05C004E2FA4 /* CatBreedsTableViewCell.swift */; };
+		DB6344CC2459D05C004E2FA4 /* CatBreedsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB6344CA2459D05C004E2FA4 /* CatBreedsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DB6344AA2459B8C4004E2FA4 /* FunnyCats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnyCats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6344AD2459B8C4004E2FA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6344AF2459B8C4004E2FA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB6344B12459B8C4004E2FA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB6344B42459B8C4004E2FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB6344B72459B8C4004E2FA4 /* FunnyCats.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FunnyCats.xcdatamodel; sourceTree = "<group>"; };
 		DB6344B92459B8C6004E2FA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB6344BC2459B8C6004E2FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB6344BE2459B8C6004E2FA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB6344C42459C9CA004E2FA4 /* TapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarController.swift; sourceTree = "<group>"; };
+		DB6344C72459CFD2004E2FA4 /* CatBreedsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedsTableViewController.swift; sourceTree = "<group>"; };
+		DB6344C92459D05C004E2FA4 /* CatBreedsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedsTableViewCell.swift; sourceTree = "<group>"; };
+		DB6344CA2459D05C004E2FA4 /* CatBreedsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatBreedsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +66,8 @@
 			children = (
 				DB6344AD2459B8C4004E2FA4 /* AppDelegate.swift */,
 				DB6344AF2459B8C4004E2FA4 /* SceneDelegate.swift */,
-				DB6344B12459B8C4004E2FA4 /* ViewController.swift */,
+				DB6344C42459C9CA004E2FA4 /* TapBarController.swift */,
+				DB6344C62459CF81004E2FA4 /* CatBreedsController */,
 				DB6344B32459B8C4004E2FA4 /* Main.storyboard */,
 				DB6344B92459B8C6004E2FA4 /* Assets.xcassets */,
 				DB6344BB2459B8C6004E2FA4 /* LaunchScreen.storyboard */,
@@ -68,6 +75,16 @@
 				DB6344B62459B8C4004E2FA4 /* FunnyCats.xcdatamodeld */,
 			);
 			path = FunnyCats;
+			sourceTree = "<group>";
+		};
+		DB6344C62459CF81004E2FA4 /* CatBreedsController */ = {
+			isa = PBXGroup;
+			children = (
+				DB6344C72459CFD2004E2FA4 /* CatBreedsTableViewController.swift */,
+				DB6344C92459D05C004E2FA4 /* CatBreedsTableViewCell.swift */,
+				DB6344CA2459D05C004E2FA4 /* CatBreedsTableViewCell.xib */,
+			);
+			path = CatBreedsController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +148,7 @@
 				DB6344BD2459B8C6004E2FA4 /* LaunchScreen.storyboard in Resources */,
 				DB6344BA2459B8C6004E2FA4 /* Assets.xcassets in Resources */,
 				DB6344B52459B8C4004E2FA4 /* Main.storyboard in Resources */,
+				DB6344CC2459D05C004E2FA4 /* CatBreedsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +159,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB6344B22459B8C4004E2FA4 /* ViewController.swift in Sources */,
+				DB6344C82459CFD2004E2FA4 /* CatBreedsTableViewController.swift in Sources */,
+				DB6344CB2459D05C004E2FA4 /* CatBreedsTableViewCell.swift in Sources */,
 				DB6344B82459B8C4004E2FA4 /* FunnyCats.xcdatamodeld in Sources */,
 				DB6344AE2459B8C4004E2FA4 /* AppDelegate.swift in Sources */,
 				DB6344B02459B8C4004E2FA4 /* SceneDelegate.swift in Sources */,
+				DB6344C52459C9CA004E2FA4 /* TapBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

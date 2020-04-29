@@ -8,11 +8,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tap Bar Controller-->
         <scene sceneID="mfL-U4-I3Q">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="leU-1V-12s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tabBarController id="NkL-Is-6g6" sceneMemberID="viewController">
+                <tabBarController id="NkL-Is-6g6" customClass="TapBarController" customModule="FunnyCats" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4JN-FO-nbH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-188" y="150"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Cat Breeds Table View Controller-->
         <scene sceneID="5D1-bs-ZS6">
             <objects>
-                <tableViewController id="QS0-L8-3Ny" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CatBreedsTableViewController" id="QS0-L8-3Ny" customClass="CatBreedsTableViewController" customModule="FunnyCats" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eyt-jJ-qHN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
