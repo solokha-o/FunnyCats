@@ -11,7 +11,6 @@
         <!--Tap Bar Controller-->
         <scene sceneID="mfL-U4-I3Q">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="leU-1V-12s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController id="NkL-Is-6g6" customClass="TapBarController" customModule="FunnyCats" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4JN-FO-nbH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -24,6 +23,7 @@
                         <segue destination="9Cb-s6-rxs" kind="relationship" relationship="viewControllers" id="j2J-Jc-1dK"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="leU-1V-12s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-188" y="150"/>
         </scene>
@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sV0-Sm-twV">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="sV0-Sm-twV">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sV0-Sm-twV" id="4EV-vP-XoR">

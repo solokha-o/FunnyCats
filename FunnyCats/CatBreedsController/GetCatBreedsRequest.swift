@@ -12,7 +12,7 @@ struct GetCatBreedsRequest {
     
     let session = URLSession.shared
     // get cat breeds from url
-    func getCatBreeds(completion: @escaping (([Breed]) -> Void)) {
+    func getCatBreeds(completion: @escaping (([CatBreedsDataBaseModel]) -> Void)) {
         // url and request whit api key
         guard let url = URL(string: "https://api.thecatapi.com/v1/breeds") else { return }
         var reguest = URLRequest(url: url)
@@ -31,10 +31,10 @@ struct GetCatBreedsRequest {
                 guard let data = data else { return }
                 let decoder = JSONDecoder()
                 do {
-                    let response = try decoder.decode(CatBreedsDataBaseModel.self, from: data)
-                    print(response.breeds)
+                    let response = try decoder.decode([CatBreedsDataBaseModel].self, from: data)
+                    print(response)
                     DispatchQueue.main.async {
-                        completion(response.breeds)
+                        completion(response)
                     }
                 } catch {
                     print(error.localizedDescription)
