@@ -15,7 +15,15 @@ class CatBreedsTableViewController: UITableViewController {
     var catBreeds = [CatBreedsDataBaseModel]()
     // add intance of GetCatBreedsRequest
     let getCatBreeds = GetCatBreedsRequest()
-    
+    // create property for search bar and filtered results
+    let search = UISearchController(searchResultsController: nil)
+    var filteredCatBreeds = [CatBreedsDataBaseModel]()
+    var isSearchBarEmpty: Bool {
+        return search.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+        return search.isActive && !isSearchBarEmpty
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +32,13 @@ class CatBreedsTableViewController: UITableViewController {
             self?.catBreeds = catBreeds
             self?.tableView.reloadData()
         }
+        // configure searchBar
+        navigationItem.searchController = search
+        navigationItem.hidesSearchBarWhenScrolling = true
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Search cat breeds 😻"
+        definesPresentationContext = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -97,6 +112,13 @@ class CatBreedsTableViewController: UITableViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    // func for filter Content For Search Text
+    func filterContentForSearchText(_ searchText: String) {
+        filteredCatBreeds = catBreeds.filter { (catBreed: CatBreedsDataBaseModel) -> Bool in
+            return (catBreed.name.lowercased().contains(searchText.lowercased()))
+        }
+        tableView.reloadData()
+    }
     // configure NavigationBar
     func configNavigationBar() {
         navigationItem.title = "Cat breeds"
@@ -105,3 +127,11 @@ class CatBreedsTableViewController: UITableViewController {
         navigationController?.navigationBar.barTintColor = .systemTeal
     }
 }
+// add extension UISearchResultsUpdating 
+extension CatBreedsTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = search.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
+}
+
