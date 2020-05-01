@@ -25,8 +25,8 @@ class CatBreedsTableViewController: UITableViewController {
     }
     // create activity indicator
     var activityIndicator = UIActivityIndicatorView()
-//    // create refresh control to reload tableview
-//    var refrechControl = UIRefreshControl()
+    //    // create refresh control to reload tableview
+    //    var refrechControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class CatBreedsTableViewController: UITableViewController {
         // call activity indicator
         configActivityIndicator()
         
-//        pullRefreshTableView()
+        //        pullRefreshTableView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -123,17 +123,17 @@ class CatBreedsTableViewController: UITableViewController {
             tableView.backgroundView = nil
         }
     }
-//    // configure refresh control
-//    func pullRefreshTableView() {
-//        refrechControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-//        refrechControl.addTarget(self, action: #selector(self.refreshTableView), for: .touchDown)
-//    }
-//    @objc func refreshTableView() {
-//        getCatBreeds.loadCatBreeds { [weak self] catBreeds in
-//            self?.catBreeds = catBreeds
-//            self?.tableView.reloadData()
-//        }
-//    }
+    //    // configure refresh control
+    //    func pullRefreshTableView() {
+    //        refrechControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+    //        refrechControl.addTarget(self, action: #selector(self.refreshTableView), for: .touchDown)
+    //    }
+    //    @objc func refreshTableView() {
+    //        getCatBreeds.loadCatBreeds { [weak self] catBreeds in
+    //            self?.catBreeds = catBreeds
+    //            self?.tableView.reloadData()
+    //        }
+    //    }
 }
 // add extension UISearchResultsUpdating
 extension CatBreedsTableViewController: UISearchResultsUpdating {

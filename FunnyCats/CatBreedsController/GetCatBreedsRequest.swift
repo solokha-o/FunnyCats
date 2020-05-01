@@ -40,10 +40,10 @@ struct GetCatBreedsRequest {
                 } catch {
                     print(error.localizedDescription)
                 }
-//            case 408:
-//                let alert = UIAlertController(title: "Attention!", message: "Please, check your internet connection and try yet!", preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//                UIApplication.topViewController()?.presentingViewController?.present(alert, animated: true, completion: nil)
+                //            case 408:
+                //                let alert = UIAlertController(title: "Attention!", message: "Please, check your internet connection and try yet!", preferredStyle: .alert)
+                //                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            //                UIApplication.topViewController()?.presentingViewController?.present(alert, animated: true, completion: nil)
             default:
                 print(response.statusCode)
             }

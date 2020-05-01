@@ -118,22 +118,22 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CBL-Fy-2pN">
-                                        <rect key="frame" x="57" y="0.0" width="300" height="619.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="615.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guess the breed by the photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcQ-PQ-k5p">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="57C-HU-EI0">
-                                                <rect key="frame" x="0.0" y="41" width="300" height="527.5"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="57C-HU-EI0">
+                                                <rect key="frame" x="0.0" y="42" width="414" height="520.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="IXd-vN-Y3y"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="You are right" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CcY-Sl-8WL">
-                                                <rect key="frame" x="0.0" y="578.5" width="300" height="41"/>
+                                                <rect key="frame" x="0.0" y="572.5" width="414" height="43"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -141,24 +141,33 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="208" translatesAutoresizingMaskIntoConstraints="NO" id="GPE-A4-fO9">
-                                        <rect key="frame" x="57" y="624.5" width="300" height="45.5"/>
+                                        <rect key="frame" x="57" y="620.5" width="300" height="47"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3f-0z-WYz">
-                                                <rect key="frame" x="0.0" y="0.0" width="46" height="45.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="46" height="47"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="answerLeftButtonAction:" destination="52z-lP-HlT" eventType="touchUpInside" id="7NL-wb-7jU"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jO1-2p-20Y">
-                                                <rect key="frame" x="254" y="0.0" width="46" height="45.5"/>
+                                                <rect key="frame" x="254" y="0.0" width="46" height="47"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="answerRightButtonAction:" destination="52z-lP-HlT" eventType="touchUpInside" id="Pc8-fR-LCb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sgp-Ek-gNe">
-                                        <rect key="frame" x="184" y="675" width="46" height="50"/>
+                                        <rect key="frame" x="184" y="672.5" width="46" height="52.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWx-No-4LT">
-                                                <rect key="frame" x="0.0" y="0.0" width="46" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="46" height="52.5"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="nextQuestionButtonAction:" destination="52z-lP-HlT" eventType="touchUpInside" id="vvV-Ut-6fS"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -175,6 +184,14 @@
                         <viewLayoutGuide key="safeArea" id="jmk-2u-EP6"/>
                     </view>
                     <navigationItem key="navigationItem" id="5UQ-eB-hAO"/>
+                    <connections>
+                        <outlet property="answerLeftButtonOutlet" destination="A3f-0z-WYz" id="Fln-6R-kmH"/>
+                        <outlet property="answerRightButtonOutlet" destination="jO1-2p-20Y" id="Yrg-ZY-rmX"/>
+                        <outlet property="catImageView" destination="57C-HU-EI0" id="2Ju-XR-elF"/>
+                        <outlet property="checkAnswerLable" destination="CcY-Sl-8WL" id="iTE-xi-inv"/>
+                        <outlet property="guessCatLable" destination="lcQ-PQ-k5p" id="are-Ay-b52"/>
+                        <outlet property="nextQuestionButtonOutlet" destination="eWx-No-4LT" id="A31-nh-tN2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fd4-yI-ta7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -273,4 +290,7 @@
             <point key="canvasLocation" x="699" y="875"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="test" width="500" height="333"/>
+    </resources>
 </document>
