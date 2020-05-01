@@ -23,13 +23,19 @@ class CatBreedsTableViewController: UITableViewController {
     var isFiltering: Bool {
         return search.isActive && !isSearchBarEmpty
     }
+    // create activity indicator
+    var activityIndicator = UIActivityIndicatorView()
+//    // create refresh control to reload tableview
+//    var refrechControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavigationBar()
-        getCatBreeds.getCatBreeds { [weak self] catBreeds in
+        getCatBreeds.loadCatBreeds { [weak self] catBreeds in
             self?.catBreeds = catBreeds
             self?.tableView.reloadData()
+            self?.activityIndicator.stopAnimating()
+            self?.tableView.backgroundView = nil
         }
         // configure searchBar
         navigationItem.searchController = search
@@ -38,11 +44,19 @@ class CatBreedsTableViewController: UITableViewController {
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Search cat breeds 😻"
         definesPresentationContext = true
+        tableView.tableFooterView = UIView()
+        // call activity indicator
+        configActivityIndicator()
+        
+//        pullRefreshTableView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     // MARK: - Table view data source
@@ -95,6 +109,31 @@ class CatBreedsTableViewController: UITableViewController {
         navigationController?.navigationBar.backgroundColor = .systemTeal
         navigationController?.navigationBar.barTintColor = .systemTeal
     }
+    // configure activity Indicator
+    func configActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        activityIndicator.style = .medium
+        activityIndicator.center = self.view.center
+        self.view.addSubview(activityIndicator)
+        tableView.backgroundView = activityIndicator
+        activityIndicator.startAnimating()
+        activityIndicator.backgroundColor = .systemTeal
+        activityIndicator.hidesWhenStopped = true
+        if !filteredCatBreeds.isEmpty {
+            tableView.backgroundView = nil
+        }
+    }
+//    // configure refresh control
+//    func pullRefreshTableView() {
+//        refrechControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+//        refrechControl.addTarget(self, action: #selector(self.refreshTableView), for: .touchDown)
+//    }
+//    @objc func refreshTableView() {
+//        getCatBreeds.loadCatBreeds { [weak self] catBreeds in
+//            self?.catBreeds = catBreeds
+//            self?.tableView.reloadData()
+//        }
+//    }
 }
 // add extension UISearchResultsUpdating
 extension CatBreedsTableViewController: UISearchResultsUpdating {

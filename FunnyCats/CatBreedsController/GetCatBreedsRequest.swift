@@ -12,8 +12,8 @@ import UIKit
 struct GetCatBreedsRequest {
     
     let session = URLSession.shared
-    // get cat breeds from url
-    func getCatBreeds(completion: @escaping (([CatBreedsDataBaseModel]) -> Void)) {
+    // load cat breeds from url
+    func loadCatBreeds(completion: @escaping (([CatBreedsDataBaseModel]) -> Void)) {
         // url and request whit api key
         guard let url = URL(string: "https://api.thecatapi.com/v1/breeds") else { return }
         var reguest = URLRequest(url: url)
