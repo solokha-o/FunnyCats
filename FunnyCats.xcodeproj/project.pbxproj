@@ -15,12 +15,11 @@
 		DB6344BD2459B8C6004E2FA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6344BB2459B8C6004E2FA4 /* LaunchScreen.storyboard */; };
 		DB6344C52459C9CA004E2FA4 /* TapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344C42459C9CA004E2FA4 /* TapBarController.swift */; };
 		DB6344C82459CFD2004E2FA4 /* CatBreedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344C72459CFD2004E2FA4 /* CatBreedsTableViewController.swift */; };
-		DB6344CB2459D05C004E2FA4 /* CatBreedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344C92459D05C004E2FA4 /* CatBreedsTableViewCell.swift */; };
-		DB6344CC2459D05C004E2FA4 /* CatBreedsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB6344CA2459D05C004E2FA4 /* CatBreedsTableViewCell.xib */; };
 		DB6344CE2459D507004E2FA4 /* CatBreedsDataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344CD2459D507004E2FA4 /* CatBreedsDataBaseModel.swift */; };
 		DB6344D02459E2AF004E2FA4 /* GetCatBreedsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344CF2459E2AF004E2FA4 /* GetCatBreedsRequest.swift */; };
 		DBD5A2BF245B637A00330D3C /* DetailCatBreedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5A2BE245B637A00330D3C /* DetailCatBreedViewController.swift */; };
 		DBD5A2C2245C4B4100330D3C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD5A2C1245C4B4100330D3C /* WebKit.framework */; };
+		DBD5A2C5245C62AF00330D3C /* GuessCatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5A2C4245C62AF00330D3C /* GuessCatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,12 +33,11 @@
 		DB6344BE2459B8C6004E2FA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB6344C42459C9CA004E2FA4 /* TapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarController.swift; sourceTree = "<group>"; };
 		DB6344C72459CFD2004E2FA4 /* CatBreedsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedsTableViewController.swift; sourceTree = "<group>"; };
-		DB6344C92459D05C004E2FA4 /* CatBreedsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedsTableViewCell.swift; sourceTree = "<group>"; };
-		DB6344CA2459D05C004E2FA4 /* CatBreedsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatBreedsTableViewCell.xib; sourceTree = "<group>"; };
 		DB6344CD2459D507004E2FA4 /* CatBreedsDataBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedsDataBaseModel.swift; sourceTree = "<group>"; };
 		DB6344CF2459E2AF004E2FA4 /* GetCatBreedsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCatBreedsRequest.swift; sourceTree = "<group>"; };
 		DBD5A2BE245B637A00330D3C /* DetailCatBreedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCatBreedViewController.swift; sourceTree = "<group>"; };
 		DBD5A2C1245C4B4100330D3C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		DBD5A2C4245C62AF00330D3C /* GuessCatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessCatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +76,7 @@
 				DB6344AF2459B8C4004E2FA4 /* SceneDelegate.swift */,
 				DB6344C42459C9CA004E2FA4 /* TapBarController.swift */,
 				DB6344C62459CF81004E2FA4 /* CatBreedsController */,
+				DBD5A2C3245C628500330D3C /* GuessCatController */,
 				DB6344B32459B8C4004E2FA4 /* Main.storyboard */,
 				DB6344B92459B8C6004E2FA4 /* Assets.xcassets */,
 				DB6344BB2459B8C6004E2FA4 /* LaunchScreen.storyboard */,
@@ -91,8 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				DB6344C72459CFD2004E2FA4 /* CatBreedsTableViewController.swift */,
-				DB6344C92459D05C004E2FA4 /* CatBreedsTableViewCell.swift */,
-				DB6344CA2459D05C004E2FA4 /* CatBreedsTableViewCell.xib */,
 				DB6344CD2459D507004E2FA4 /* CatBreedsDataBaseModel.swift */,
 				DB6344CF2459E2AF004E2FA4 /* GetCatBreedsRequest.swift */,
 				DBD5A2BE245B637A00330D3C /* DetailCatBreedViewController.swift */,
@@ -106,6 +103,14 @@
 				DBD5A2C1245C4B4100330D3C /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DBD5A2C3245C628500330D3C /* GuessCatController */ = {
+			isa = PBXGroup;
+			children = (
+				DBD5A2C4245C62AF00330D3C /* GuessCatViewController.swift */,
+			);
+			path = GuessCatController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,7 +174,6 @@
 				DB6344BD2459B8C6004E2FA4 /* LaunchScreen.storyboard in Resources */,
 				DB6344BA2459B8C6004E2FA4 /* Assets.xcassets in Resources */,
 				DB6344B52459B8C4004E2FA4 /* Main.storyboard in Resources */,
-				DB6344CC2459D05C004E2FA4 /* CatBreedsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB6344C82459CFD2004E2FA4 /* CatBreedsTableViewController.swift in Sources */,
-				DB6344CB2459D05C004E2FA4 /* CatBreedsTableViewCell.swift in Sources */,
+				DBD5A2C5245C62AF00330D3C /* GuessCatViewController.swift in Sources */,
 				DB6344D02459E2AF004E2FA4 /* GetCatBreedsRequest.swift in Sources */,
 				DB6344B82459B8C4004E2FA4 /* FunnyCats.xcdatamodeld in Sources */,
 				DB6344AE2459B8C4004E2FA4 /* AppDelegate.swift in Sources */,
