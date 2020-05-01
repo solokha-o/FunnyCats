@@ -16,21 +16,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KNU-nw-uYj">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="812"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Funny Cats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eam-l5-h56">
-                                        <rect key="frame" x="86.5" y="0.0" width="241.5" height="60"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Funny Cats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eam-l5-h56">
+                                        <rect key="frame" x="86.5" y="0.0" width="241.5" height="82"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="241.5" id="8Nk-Ep-EWL"/>
-                                            <constraint firstAttribute="height" constant="60" id="ciU-lj-cm8"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="L3R-2j-WUS"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="70"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="zdB-nt-jwQ">
-                                        <rect key="frame" x="0.0" y="60" width="414" height="792"/>
+                                        <rect key="frame" x="0.0" y="82" width="414" height="730"/>
                                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                 </subviews>
@@ -39,9 +38,10 @@
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="KNU-nw-uYj" secondAttribute="bottom" priority="750" id="7y8-tC-egr"/>
-                            <constraint firstItem="KNU-nw-uYj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WZj-xI-XDo"/>
                             <constraint firstAttribute="trailing" secondItem="KNU-nw-uYj" secondAttribute="trailing" id="XX3-b6-VWC"/>
+                            <constraint firstAttribute="bottom" secondItem="KNU-nw-uYj" secondAttribute="bottom" constant="20" id="sA0-to-1D1"/>
                             <constraint firstItem="KNU-nw-uYj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="w0q-XH-zfv"/>
+                            <constraint firstItem="KNU-nw-uYj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="xie-bT-2if"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

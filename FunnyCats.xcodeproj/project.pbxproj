@@ -19,6 +19,8 @@
 		DB6344CC2459D05C004E2FA4 /* CatBreedsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB6344CA2459D05C004E2FA4 /* CatBreedsTableViewCell.xib */; };
 		DB6344CE2459D507004E2FA4 /* CatBreedsDataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344CD2459D507004E2FA4 /* CatBreedsDataBaseModel.swift */; };
 		DB6344D02459E2AF004E2FA4 /* GetCatBreedsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344CF2459E2AF004E2FA4 /* GetCatBreedsRequest.swift */; };
+		DBD5A2BF245B637A00330D3C /* DetailCatBreedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5A2BE245B637A00330D3C /* DetailCatBreedViewController.swift */; };
+		DBD5A2C2245C4B4100330D3C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD5A2C1245C4B4100330D3C /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		DB6344CA2459D05C004E2FA4 /* CatBreedsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatBreedsTableViewCell.xib; sourceTree = "<group>"; };
 		DB6344CD2459D507004E2FA4 /* CatBreedsDataBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedsDataBaseModel.swift; sourceTree = "<group>"; };
 		DB6344CF2459E2AF004E2FA4 /* GetCatBreedsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCatBreedsRequest.swift; sourceTree = "<group>"; };
+		DBD5A2BE245B637A00330D3C /* DetailCatBreedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCatBreedViewController.swift; sourceTree = "<group>"; };
+		DBD5A2C1245C4B4100330D3C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBD5A2C2245C4B4100330D3C /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +59,7 @@
 			children = (
 				DB6344AC2459B8C4004E2FA4 /* FunnyCats */,
 				DB6344AB2459B8C4004E2FA4 /* Products */,
+				DBD5A2C0245C4B4100330D3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,8 +95,17 @@
 				DB6344CA2459D05C004E2FA4 /* CatBreedsTableViewCell.xib */,
 				DB6344CD2459D507004E2FA4 /* CatBreedsDataBaseModel.swift */,
 				DB6344CF2459E2AF004E2FA4 /* GetCatBreedsRequest.swift */,
+				DBD5A2BE245B637A00330D3C /* DetailCatBreedViewController.swift */,
 			);
 			path = CatBreedsController;
+			sourceTree = "<group>";
+		};
+		DBD5A2C0245C4B4100330D3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DBD5A2C1245C4B4100330D3C /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +185,7 @@
 				DB6344D02459E2AF004E2FA4 /* GetCatBreedsRequest.swift in Sources */,
 				DB6344B82459B8C4004E2FA4 /* FunnyCats.xcdatamodeld in Sources */,
 				DB6344AE2459B8C4004E2FA4 /* AppDelegate.swift in Sources */,
+				DBD5A2BF245B637A00330D3C /* DetailCatBreedViewController.swift in Sources */,
 				DB6344B02459B8C4004E2FA4 /* SceneDelegate.swift in Sources */,
 				DB6344CE2459D507004E2FA4 /* CatBreedsDataBaseModel.swift in Sources */,
 				DB6344C52459C9CA004E2FA4 /* TapBarController.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct GetCatBreedsRequest {
     
@@ -39,6 +40,10 @@ struct GetCatBreedsRequest {
                 } catch {
                     print(error.localizedDescription)
                 }
+//            case 408:
+//                let alert = UIAlertController(title: "Attention!", message: "Please, check your internet connection and try yet!", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//                UIApplication.topViewController()?.presentingViewController?.present(alert, animated: true, completion: nil)
             default:
                 print(response.statusCode)
             }
@@ -46,4 +51,19 @@ struct GetCatBreedsRequest {
         task.resume()
     }
 }
+//extension UIApplication {
+//
+//    static func topViewController(base: UIViewController? = UIApplication.shared.delegate?.window??.rootViewController) -> UIViewController? {
+//        if let nav = base as? UINavigationController {
+//            return topViewController(base: nav.visibleViewController)
+//        }
+//        if let tab = base as? UITabBarController, let selected = tab.selectedViewController {
+//            return topViewController(base: selected)
+//        }
+//        if let presented = base?.presentedViewController {
+//            return topViewController(base: presented)
+//        }
+//        return base
+//    }
+//}
 

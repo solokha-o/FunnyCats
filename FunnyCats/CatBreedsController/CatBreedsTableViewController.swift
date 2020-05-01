@@ -10,7 +10,6 @@ import UIKit
 
 class CatBreedsTableViewController: UITableViewController {
     
-    
     // create array of cat breeds
     var catBreeds = [CatBreedsDataBaseModel]()
     // add intance of GetCatBreedsRequest
@@ -54,68 +53,38 @@ class CatBreedsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        // number of row return from array cat breeds or filtering results
+        if isFiltering {
+            return filteredCatBreeds.count
+        }
         return catBreeds.count
     }
-    
-    
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-     
-        cell.textLabel?.text = catBreeds[indexPath.row].name
-     
-     return cell
-     }
-     
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }    
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    // configure cell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        switch isFiltering {
+        case true:
+            cell.textLabel?.text = filteredCatBreeds[indexPath.row].name
+            cell.detailTextLabel?.text = "Country of Origin - " + filteredCatBreeds[indexPath.row].origin
+        case false:
+            cell.textLabel?.text = catBreeds[indexPath.row].name
+            cell.detailTextLabel?.text = "Country of Origin - " + catBreeds[indexPath.row].origin
+        }
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+    // configure didSelectRowAt
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let urlCatBreed = catBreeds[indexPath.row].wikipediaURL
+        guard let detailCatBreedVC = storyboard?.instantiateViewController(identifier: "DetailCatBreedViewController") as? DetailCatBreedViewController else { return }
+        //show in detail view controller cat breed from url wikipedia
+        detailCatBreedVC.getUrl = urlCatBreed ?? "https://google.com"
+        show(detailCatBreedVC, sender: nil)
+    }
     // func for filter Content For Search Text
     func filterContentForSearchText(_ searchText: String) {
         filteredCatBreeds = catBreeds.filter { (catBreed: CatBreedsDataBaseModel) -> Bool in
-            return (catBreed.name.lowercased().contains(searchText.lowercased()))
+            return (catBreed.name.lowercased().contains(searchText.lowercased())) || (catBreed.origin.lowercased().contains(searchText.lowercased()))
         }
         tableView.reloadData()
     }
@@ -127,7 +96,7 @@ class CatBreedsTableViewController: UITableViewController {
         navigationController?.navigationBar.barTintColor = .systemTeal
     }
 }
-// add extension UISearchResultsUpdating 
+// add extension UISearchResultsUpdating
 extension CatBreedsTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = search.searchBar
