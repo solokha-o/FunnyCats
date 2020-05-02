@@ -23,7 +23,6 @@
 		DBD5A2C7245C77E400330D3C /* GuessCatDataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5A2C6245C77E400330D3C /* GuessCatDataBaseModel.swift */; };
 		DBF08663245D485900351513 /* GuessCatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF08662245D485900351513 /* GuessCatRequest.swift */; };
 		DBF08665245D571500351513 /* LoadCatImageReguest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF08664245D571500351513 /* LoadCatImageReguest.swift */; };
-		DBF08667245D59DA00351513 /* CatImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF08666245D59DA00351513 /* CatImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +44,6 @@
 		DBD5A2C6245C77E400330D3C /* GuessCatDataBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessCatDataBaseModel.swift; sourceTree = "<group>"; };
 		DBF08662245D485900351513 /* GuessCatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessCatRequest.swift; sourceTree = "<group>"; };
 		DBF08664245D571500351513 /* LoadCatImageReguest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCatImageReguest.swift; sourceTree = "<group>"; };
-		DBF08666245D59DA00351513 /* CatImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +118,6 @@
 				DBD5A2C6245C77E400330D3C /* GuessCatDataBaseModel.swift */,
 				DBF08662245D485900351513 /* GuessCatRequest.swift */,
 				DBF08664245D571500351513 /* LoadCatImageReguest.swift */,
-				DBF08666245D59DA00351513 /* CatImage.swift */,
 			);
 			path = GuessCatController;
 			sourceTree = "<group>";
@@ -203,7 +200,6 @@
 				DBF08663245D485900351513 /* GuessCatRequest.swift in Sources */,
 				DB6344B82459B8C4004E2FA4 /* FunnyCats.xcdatamodeld in Sources */,
 				DBF08665245D571500351513 /* LoadCatImageReguest.swift in Sources */,
-				DBF08667245D59DA00351513 /* CatImage.swift in Sources */,
 				DB6344AE2459B8C4004E2FA4 /* AppDelegate.swift in Sources */,
 				DBD5A2BF245B637A00330D3C /* DetailCatBreedViewController.swift in Sources */,
 				DB6344B02459B8C4004E2FA4 /* SceneDelegate.swift in Sources */,

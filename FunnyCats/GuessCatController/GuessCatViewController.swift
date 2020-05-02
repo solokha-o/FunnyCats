@@ -25,18 +25,19 @@ class GuessCatViewController: UIViewController {
     let guessCatRequest = GuessCatRequest()
     //create instance guess cat model
     var guessCat = [GuessCatDataBaseModel]()
+    // create activity indicator
+    var activityIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // call setup and configure function
         configNavigationBar()
         setupController()
-        DispatchQueue.main.async {
-            //load cat breeds
-            self.getCatBreeds.loadCatBreeds { [weak self] catBreeds in
-                self?.catBreeds = catBreeds
-                self?.loadImageCatBreed(catBreeds: catBreeds)
-            }
+        configActivityIndicator()
+        //load cat breeds
+        self.getCatBreeds.loadCatBreeds { [weak self] catBreeds in
+            self?.catBreeds = catBreeds
+            self?.loadImageCatBreed(catBreeds: catBreeds)
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -51,9 +52,7 @@ class GuessCatViewController: UIViewController {
     }
     // configure next question button by use random breed
     @IBAction func nextQuestionButtonAction(_ sender: UIButton) {
-        UIImageView.animate(withDuration: 1.0) {
-            self.loadImageCatBreed(catBreeds: self.catBreeds)
-        }
+        loadImageCatBreed(catBreeds: self.catBreeds)
     }
     // configure NavigationBar
     func configNavigationBar() {
@@ -70,11 +69,13 @@ class GuessCatViewController: UIViewController {
     }
     // load image cat breed
     func loadImageCatBreed(catBreeds: [CatBreedsDataBaseModel]) {
+        activityIndicator.startAnimating()
         guessCatRequest.loadCat(breedId: randomBreed(catBreeds: catBreeds)) { [weak self] guessCat in
             DispatchQueue.main.async {
                 self?.guessCat = guessCat
                 guard let url = URL(string: guessCat[0].url) else { return }
                 self?.catImageView.load(url: url)
+                self?.activityIndicator.stopAnimating()
             }
         }
     }
@@ -94,5 +95,15 @@ class GuessCatViewController: UIViewController {
         nextQuestionButtonOutlet.tintColor = .black
         nextQuestionButtonOutlet.layer.cornerRadius = 10.0
         nextQuestionButtonOutlet.setTitle("Next cat", for: .normal)
+    }
+    // configure activity Indicator
+    func configActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        activityIndicator.layer.cornerRadius = 10.0
+        activityIndicator.style = .medium
+        activityIndicator.center = self.view.center
+        activityIndicator.backgroundColor = .systemTeal
+        activityIndicator.hidesWhenStopped = true
+        self.view.addSubview(activityIndicator)
     }
 }
