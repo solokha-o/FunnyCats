@@ -21,7 +21,6 @@
 		DBD5A2C2245C4B4100330D3C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD5A2C1245C4B4100330D3C /* WebKit.framework */; };
 		DBD5A2C5245C62AF00330D3C /* GuessCatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5A2C4245C62AF00330D3C /* GuessCatViewController.swift */; };
 		DBD5A2C7245C77E400330D3C /* GuessCatDataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5A2C6245C77E400330D3C /* GuessCatDataBaseModel.swift */; };
-		DBD5A2C9245C780D00330D3C /* GetCatGuessRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5A2C8245C780D00330D3C /* GetCatGuessRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +40,6 @@
 		DBD5A2C1245C4B4100330D3C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		DBD5A2C4245C62AF00330D3C /* GuessCatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessCatViewController.swift; sourceTree = "<group>"; };
 		DBD5A2C6245C77E400330D3C /* GuessCatDataBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessCatDataBaseModel.swift; sourceTree = "<group>"; };
-		DBD5A2C8245C780D00330D3C /* GetCatGuessRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCatGuessRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +112,6 @@
 			children = (
 				DBD5A2C4245C62AF00330D3C /* GuessCatViewController.swift */,
 				DBD5A2C6245C77E400330D3C /* GuessCatDataBaseModel.swift */,
-				DBD5A2C8245C780D00330D3C /* GetCatGuessRequest.swift */,
 			);
 			path = GuessCatController;
 			sourceTree = "<group>";
@@ -191,7 +188,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB6344C82459CFD2004E2FA4 /* CatBreedsTableViewController.swift in Sources */,
-				DBD5A2C9245C780D00330D3C /* GetCatGuessRequest.swift in Sources */,
 				DBD5A2C5245C62AF00330D3C /* GuessCatViewController.swift in Sources */,
 				DB6344D02459E2AF004E2FA4 /* GetCatBreedsRequest.swift in Sources */,
 				DBD5A2C7245C77E400330D3C /* GuessCatDataBaseModel.swift in Sources */,

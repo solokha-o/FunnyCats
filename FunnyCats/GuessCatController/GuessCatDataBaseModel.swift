@@ -59,4 +59,4 @@ struct Breed: Codable {
 }
 
 
-typealias Welcome = [GuessCatDataBaseModel]
+typealias guessCat = [GuessCatDataBaseModel]
