@@ -119,9 +119,6 @@ class CatBreedsTableViewController: UITableViewController {
         activityIndicator.startAnimating()
         activityIndicator.backgroundColor = .systemTeal
         activityIndicator.hidesWhenStopped = true
-        if !filteredCatBreeds.isEmpty {
-            tableView.backgroundView = nil
-        }
     }
     //    // configure refresh control
     //    func pullRefreshTableView() {

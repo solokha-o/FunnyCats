@@ -1,20 +1,20 @@
 //
-//  GetCatBreedsRequest.swift
+//  GuessCatRequest.swift
 //  FunnyCats
 //
-//  Created by Oleksandr Solokha on 29.04.2020.
+//  Created by Oleksandr Solokha on 02.05.2020.
 //  Copyright © 2020 Oleksandr Solokha. All rights reserved.
 //
 
 import Foundation
 
-struct GetCatBreedsRequest {
+struct GuessCatRequest {
     
     let session = URLSession.shared
-    // load cat breeds from url
-    func loadCatBreeds(completion: @escaping (([CatBreedsDataBaseModel]) -> Void)) {
+    // load cat breed from url
+    func loadCat(breedId: String, completion: @escaping (([GuessCatDataBaseModel]) -> Void)) {
         // url and request whit api key
-        guard let url = URL(string: "https://api.thecatapi.com/v1/breeds") else { return }
+        guard let url = URL(string: "https://api.thecatapi.com/v1/images/search?breed_id=" + breedId) else { return }
         var reguest = URLRequest(url: url)
         let yourAuthorizationToken = "81be8538-14ea-424c-8677-0bb419c7b7ba"
         reguest.httpMethod = "GET"
@@ -31,7 +31,7 @@ struct GetCatBreedsRequest {
                 guard let data = data else { return }
                 let decoder = JSONDecoder()
                 do {
-                    let response = try decoder.decode([CatBreedsDataBaseModel].self, from: data)
+                    let response = try decoder.decode([GuessCatDataBaseModel].self, from: data)
                     print(response)
                     DispatchQueue.main.async {
                         completion(response)
@@ -46,5 +46,3 @@ struct GetCatBreedsRequest {
         task.resume()
     }
 }
-
-
