@@ -158,8 +158,4 @@ class GuessCatViewController: UIViewController {
         activityIndicator.hidesWhenStopped = true
         self.view.addSubview(activityIndicator)
     }
-//    func setupTitleAnswerButton(catBreeds: [CatBreedsDataBaseModel], guessCat: [GuessCatDataBaseModel]) {
-//        let index = Int.random(in: 0...1)
-//        answerButtonsOutlet[index].setTitle(guessCat[0]., for: <#T##UIControl.State#>)
-//    }
 }

@@ -17,6 +17,8 @@
 		DB6344C82459CFD2004E2FA4 /* CatBreedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344C72459CFD2004E2FA4 /* CatBreedsTableViewController.swift */; };
 		DB6344CE2459D507004E2FA4 /* CatBreedsDataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344CD2459D507004E2FA4 /* CatBreedsDataBaseModel.swift */; };
 		DB6344D02459E2AF004E2FA4 /* GetCatBreedsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344CF2459E2AF004E2FA4 /* GetCatBreedsRequest.swift */; };
+		DB88C8922461B4BB005F0350 /* CatGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88C8912461B4BB005F0350 /* CatGalleryCollectionViewCell.swift */; };
+		DB9E38252461A72800303D71 /* CatGalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E38242461A72800303D71 /* CatGalleryCollectionViewController.swift */; };
 		DBD5A2BF245B637A00330D3C /* DetailCatBreedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5A2BE245B637A00330D3C /* DetailCatBreedViewController.swift */; };
 		DBD5A2C2245C4B4100330D3C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD5A2C1245C4B4100330D3C /* WebKit.framework */; };
 		DBD5A2C5245C62AF00330D3C /* GuessCatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5A2C4245C62AF00330D3C /* GuessCatViewController.swift */; };
@@ -38,6 +40,8 @@
 		DB6344C72459CFD2004E2FA4 /* CatBreedsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedsTableViewController.swift; sourceTree = "<group>"; };
 		DB6344CD2459D507004E2FA4 /* CatBreedsDataBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedsDataBaseModel.swift; sourceTree = "<group>"; };
 		DB6344CF2459E2AF004E2FA4 /* GetCatBreedsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCatBreedsRequest.swift; sourceTree = "<group>"; };
+		DB88C8912461B4BB005F0350 /* CatGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB9E38242461A72800303D71 /* CatGalleryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatGalleryCollectionViewController.swift; sourceTree = "<group>"; };
 		DBD5A2BE245B637A00330D3C /* DetailCatBreedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCatBreedViewController.swift; sourceTree = "<group>"; };
 		DBD5A2C1245C4B4100330D3C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		DBD5A2C4245C62AF00330D3C /* GuessCatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessCatViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 				DB6344C42459C9CA004E2FA4 /* TapBarController.swift */,
 				DB6344C62459CF81004E2FA4 /* CatBreedsController */,
 				DBD5A2C3245C628500330D3C /* GuessCatController */,
+				DB9E38232461A6CF00303D71 /* CatGalleryController */,
 				DB6344B32459B8C4004E2FA4 /* Main.storyboard */,
 				DB6344B92459B8C6004E2FA4 /* Assets.xcassets */,
 				DB6344BB2459B8C6004E2FA4 /* LaunchScreen.storyboard */,
@@ -101,6 +106,15 @@
 				DBD5A2BE245B637A00330D3C /* DetailCatBreedViewController.swift */,
 			);
 			path = CatBreedsController;
+			sourceTree = "<group>";
+		};
+		DB9E38232461A6CF00303D71 /* CatGalleryController */ = {
+			isa = PBXGroup;
+			children = (
+				DB9E38242461A72800303D71 /* CatGalleryCollectionViewController.swift */,
+				DB88C8912461B4BB005F0350 /* CatGalleryCollectionViewCell.swift */,
+			);
+			path = CatGalleryController;
 			sourceTree = "<group>";
 		};
 		DBD5A2C0245C4B4100330D3C /* Frameworks */ = {
@@ -197,9 +211,11 @@
 				DBD5A2C5245C62AF00330D3C /* GuessCatViewController.swift in Sources */,
 				DB6344D02459E2AF004E2FA4 /* GetCatBreedsRequest.swift in Sources */,
 				DBD5A2C7245C77E400330D3C /* GuessCatDataBaseModel.swift in Sources */,
+				DB9E38252461A72800303D71 /* CatGalleryCollectionViewController.swift in Sources */,
 				DBF08663245D485900351513 /* GuessCatRequest.swift in Sources */,
 				DB6344B82459B8C4004E2FA4 /* FunnyCats.xcdatamodeld in Sources */,
 				DBF08665245D571500351513 /* LoadCatImageReguest.swift in Sources */,
+				DB88C8922461B4BB005F0350 /* CatGalleryCollectionViewCell.swift in Sources */,
 				DB6344AE2459B8C4004E2FA4 /* AppDelegate.swift in Sources */,
 				DBD5A2BF245B637A00330D3C /* DetailCatBreedViewController.swift in Sources */,
 				DB6344B02459B8C4004E2FA4 /* SceneDelegate.swift in Sources */,
