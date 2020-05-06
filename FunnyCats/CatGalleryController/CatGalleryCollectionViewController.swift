@@ -24,16 +24,6 @@ class CatGalleryCollectionViewController: UICollectionViewController {
         setupFlowLayout()
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
     // MARK: UICollectionViewDataSource
     // configure number of sections and items
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -48,6 +38,17 @@ class CatGalleryCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? CatGalleryCollectionViewCell else { return UICollectionViewCell() }
         cell.set(catBreed: catBreeds[indexPath.row])
+        cell.layer.cornerRadius = 20
+        // setup activityIndicator in cell
+        var activityIndicator = UIActivityIndicatorView()
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        activityIndicator.layer.cornerRadius = 10.0
+        activityIndicator.style = .medium
+        activityIndicator.backgroundColor = .systemTeal
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.center = CGPoint(x: cell.contentView.frame.width / 2, y: cell.contentView.frame.height / 2)
+        cell.backgroundView = activityIndicator
+        activityIndicator.startAnimating()
         return cell
     }
     
