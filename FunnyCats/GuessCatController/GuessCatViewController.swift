@@ -98,7 +98,6 @@ class GuessCatViewController: UIViewController {
     // configure NavigationBar
     func configNavigationBar() {
         navigationItem.title = "Guess cat"
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.backgroundColor = .systemTeal
         navigationController?.navigationBar.barTintColor = .systemTeal
     }
@@ -123,27 +122,30 @@ class GuessCatViewController: UIViewController {
         guessCatRequest.loadCat(breedId: randomBreed(catBreeds: catBreeds)) { [weak self] guessCat in
             DispatchQueue.main.async {
                 self?.guessCat = guessCat
-                guard let url = URL(string: guessCat[0].url) else { return }
-                self?.catImageView.load(url: url)
-                self?.activityIndicator.stopAnimating()
+                if !guessCat[0].url.isEmpty {
+                    guard let url = URL(string: guessCat[0].url) else { return }
+                    self?.catImageView.load(url: url)
+                    self?.activityIndicator.stopAnimating()
+                }
+                
             }
         }
     }
     // configure controller
     func setupController() {
         guessCatLable.text = "Guess the breed by the photo"
-        catImageView.contentMode = .scaleAspectFill
+        catImageView.contentMode = .redraw
         catImageView.layer.masksToBounds = true
         catImageView.layer.cornerRadius = 20.0
         answerButtonsOutlet[0].backgroundColor = .systemTeal
         answerButtonsOutlet[0].tintColor = .black
-        answerButtonsOutlet[0].layer.cornerRadius = 10.0
+        answerButtonsOutlet[0].layer.cornerRadius = 5.0
         answerButtonsOutlet[1].backgroundColor = .systemTeal
         answerButtonsOutlet[1].tintColor = .black
-        answerButtonsOutlet[1].layer.cornerRadius = 10.0
+        answerButtonsOutlet[1].layer.cornerRadius = 5.0
         nextQuestionButtonOutlet.backgroundColor = .systemTeal
         nextQuestionButtonOutlet.tintColor = .black
-        nextQuestionButtonOutlet.layer.cornerRadius = 10.0
+        nextQuestionButtonOutlet.layer.cornerRadius = 5.0
         nextQuestionButtonOutlet.setTitle("Next cat", for: .normal)
         checkAnswerLable.text = "Let's do it!"
         scoreLable.text = "Score: \(score)"

@@ -17,16 +17,17 @@ class CatGalleryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var catImageView: UIImageView!
     
-    
-    
     // get photo cat from request and set to catImageView
     func set(catBreed: CatBreedsDataBaseModel) {
         guessCatRequest.loadCat(breedId: catBreed.id) { [weak self] guessCat in
             self?.guessCat = guessCat
-            DispatchQueue.main.async {
-                guard let url = URL(string: guessCat[0].url) else { return }
-                self?.catImageView.load(url: url)
+            if !guessCat[0].url.isEmpty {
+                DispatchQueue.main.async {
+                    guard let url = URL(string: guessCat[0].url) else { return }
+                    self?.catImageView.load(url: url)
+                }
             }
+            
         }
     }
 }
