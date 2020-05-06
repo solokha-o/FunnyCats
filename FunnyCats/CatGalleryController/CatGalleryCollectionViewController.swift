@@ -21,6 +21,7 @@ class CatGalleryCollectionViewController: UICollectionViewController {
         // call setup and configuration function
         configNavigationBar()
         loadCatBreeds()
+        setupFlowLayout()
     }
     
     /*
@@ -93,5 +94,21 @@ class CatGalleryCollectionViewController: UICollectionViewController {
             self?.catBreeds = catBreeds
             self?.collectionView.reloadData()
         }
+    }
+    //setup flow layout to collection view
+    func setupFlowLayout() {
+        let itemsInLine : CGFloat = 2
+        let selectionInserts = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        let retreatgWidth = selectionInserts.left * (itemsInLine + 1)
+        print(retreatgWidth)
+        let availableWidth = collectionView.frame.width - retreatgWidth
+        print(availableWidth)
+        let widthItem = availableWidth / itemsInLine
+        print(widthItem)
+        layout.itemSize = CGSize(width: widthItem, height: widthItem)
+        layout.sectionInset = selectionInserts
+        layout.minimumLineSpacing = selectionInserts.left
+        layout.minimumInteritemSpacing = selectionInserts.left
     }
 }
