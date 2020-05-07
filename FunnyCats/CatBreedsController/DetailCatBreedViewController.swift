@@ -13,12 +13,16 @@ class DetailCatBreedViewController: UIViewController {
     
     @IBOutlet weak var webView: WKWebView!
     
+    // navigationItem title
+    var navigationItemTitle = ""
     // create string with empty url
     var getUrl = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadUrlCatBreed (passUrl: getUrl)
+        navigationItem.title = navigationItemTitle
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     // load url from string in webView
