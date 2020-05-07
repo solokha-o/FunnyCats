@@ -134,7 +134,7 @@ class GuessCatViewController: UIViewController {
     // configure controller
     func setupController() {
         guessCatLable.text = "Guess the breed by the photo"
-        catImageView.contentMode = .redraw
+        catImageView.contentMode = .scaleAspectFill
         catImageView.layer.masksToBounds = true
         catImageView.layer.cornerRadius = 20.0
         answerButtonsOutlet[0].backgroundColor = .systemTeal
