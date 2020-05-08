@@ -52,6 +52,13 @@ class CatGalleryCollectionViewController: UICollectionViewController {
     }
     
     // MARK: UICollectionViewDelegate
+    // configure didSelectItemAt to show DetailCatPhotoViewController
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let catGalleryCVC = collectionView.cellForItem(at: indexPath) as? CatGalleryCollectionViewCell, let detailCatPhotoVC = storyboard?.instantiateViewController(identifier: "DetailCatPhotoViewController") as? DetailCatPhotoViewController else { return }
+        _ = detailCatPhotoVC.view
+        detailCatPhotoVC.photoImageView.image = catGalleryCVC.photo?.image
+        show(detailCatPhotoVC, sender: nil)
+    }
     
     /*
      // Uncomment this method to specify if the specified item should be highlighted during tracking
@@ -59,6 +66,7 @@ class CatGalleryCollectionViewController: UICollectionViewController {
      return true
      }
      */
+    
     
     /*
      // Uncomment this method to specify if the specified item should be selected

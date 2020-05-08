@@ -14,9 +14,10 @@ class CatGalleryCollectionViewCell: UICollectionViewCell {
     let guessCatRequest = GuessCatRequest()
     //create instance guess cat model
     var guessCat = [GuessCatDataBaseModel]()
+    // photo instance
+    var photo : UIImageView?
     
     @IBOutlet weak var catImageView: UIImageView!
-    
     // get photo cat from request and set to catImageView
     func set(catBreed: CatBreedsDataBaseModel) {
         guessCatRequest.loadCat(breedId: catBreed.id) { [weak self] guessCat in
@@ -25,9 +26,11 @@ class CatGalleryCollectionViewCell: UICollectionViewCell {
                 DispatchQueue.main.async {
                     guard let url = URL(string: guessCat[0].url) else { return }
                     self?.catImageView.load(url: url)
+                    DispatchQueue.main.async {
+                        self?.photo = self?.catImageView
+                    }
                 }
             }
-            
         }
     }
 }
