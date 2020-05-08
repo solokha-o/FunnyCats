@@ -293,18 +293,28 @@
                                     <constraint firstAttribute="height" constant="350" id="smJ-zN-cca"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ob-9Q-IPg">
-                                <rect key="frame" x="184" y="812" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ob-9Q-IPg">
+                                <rect key="frame" x="180" y="808" width="54" height="34"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="shareButtonAction:" destination="tcR-4D-32e" eventType="touchUpInside" id="Knw-29-vGY"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb4-Se-2hO">
+                                <rect key="frame" x="167" y="74" width="80.5" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="fpI-ww-sXO" firstAttribute="centerX" secondItem="mBX-N5-hI4" secondAttribute="centerX" id="1bH-h6-vH2"/>
+                            <constraint firstItem="cb4-Se-2hO" firstAttribute="top" secondItem="3U0-eH-4bz" secondAttribute="top" constant="30" id="2cK-Pw-MwI"/>
                             <constraint firstItem="fpI-ww-sXO" firstAttribute="leading" secondItem="3U0-eH-4bz" secondAttribute="leading" id="Tl6-BT-gdj"/>
+                            <constraint firstItem="cb4-Se-2hO" firstAttribute="centerX" secondItem="mBX-N5-hI4" secondAttribute="centerX" id="WU3-9y-QY1"/>
                             <constraint firstItem="fpI-ww-sXO" firstAttribute="centerY" secondItem="mBX-N5-hI4" secondAttribute="centerY" id="nSW-wo-rlV"/>
                             <constraint firstItem="3U0-eH-4bz" firstAttribute="trailing" secondItem="fpI-ww-sXO" secondAttribute="trailing" id="pDR-Kj-G7r"/>
                             <constraint firstItem="3U0-eH-4bz" firstAttribute="bottom" secondItem="6Ob-9Q-IPg" secondAttribute="bottom" constant="20" id="uRR-wQ-n3n"/>
@@ -313,6 +323,7 @@
                         <viewLayoutGuide key="safeArea" id="3U0-eH-4bz"/>
                     </view>
                     <connections>
+                        <outlet property="nameCatBreedLable" destination="cb4-Se-2hO" id="DKk-db-3jh"/>
                         <outlet property="photoImageView" destination="fpI-ww-sXO" id="Or4-zg-wHZ"/>
                         <outlet property="shareButtonOutlet" destination="6Ob-9Q-IPg" id="Z6I-Aj-e5M"/>
                     </connections>
