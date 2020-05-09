@@ -10,20 +10,27 @@ import UIKit
 
 class DetailCatPhotoViewController: UIViewController {
 
-    
-    
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var shareButtonOutlet: UIButton!
     @IBOutlet weak var nameCatBreedLable: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // call configuration and setup function
         setupController()
     }
-    
+    // configure button share
     @IBAction func shareButtonAction(_ sender: UIButton) {
+        // setup UIActivityViewController for share photo
+        let shareItem = [photoImageView.image!]
+        let shareController = UIActivityViewController(activityItems: shareItem, applicationActivities: nil)
+        shareController.completionWithItemsHandler = {_, bool, _, _ in
+            if bool {
+                print("Photo save in librery of phone!")
+            }
+        }
+        shareController.popoverPresentationController?.sourceView = sender
+        present(shareController, animated: true)
     }
     // configure object in controller
     func setupController() {
