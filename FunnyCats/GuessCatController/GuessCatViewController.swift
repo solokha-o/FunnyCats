@@ -72,7 +72,6 @@ class GuessCatViewController: UIViewController {
         var ansverIsRight : Bool {
             return sender.titleLabel?.text == catBreeds[indexCatBreeds].name
         }
-        
         switch ansverIsRight {
         case true:
             sender.backgroundColor = trueAnswer.colorButton

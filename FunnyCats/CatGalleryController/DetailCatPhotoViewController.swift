@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailCatPhotoViewController: UIViewController {
-
+    
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var shareButtonOutlet: UIButton!
     @IBOutlet weak var nameCatBreedLable: UILabel!
