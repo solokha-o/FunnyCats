@@ -60,6 +60,11 @@ class CatGalleryCollectionViewController: UICollectionViewController {
         detailCatPhotoVC.photoImageView.image = catGalleryCVC.photo?.image
         showDetailViewController(detailCatPhotoVC, sender: nil)
     }
+    //cancel task hidden cell
+    override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let catGalleryCVC = collectionView.cellForItem(at: indexPath) as? CatGalleryCollectionViewCell else { return }
+        catGalleryCVC.guessCatRequest.session.invalidateAndCancel()
+    }
    
     // configure NavigationBar
     func configNavigationBar() {
