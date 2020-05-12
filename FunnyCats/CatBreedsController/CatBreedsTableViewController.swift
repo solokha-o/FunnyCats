@@ -25,8 +25,6 @@ class CatBreedsTableViewController: UITableViewController {
     }
     // create activity indicator
     var activityIndicator = UIActivityIndicatorView()
-    //    // create refresh control to reload tableview
-    //    var refrechControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +45,6 @@ class CatBreedsTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         // call activity indicator
         configActivityIndicator()
-        
-        //        pullRefreshTableView()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -130,17 +121,7 @@ class CatBreedsTableViewController: UITableViewController {
         activityIndicator.backgroundColor = .systemTeal
         activityIndicator.hidesWhenStopped = true
     }
-    //    // configure refresh control
-    //    func pullRefreshTableView() {
-    //        refrechControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-    //        refrechControl.addTarget(self, action: #selector(self.refreshTableView), for: .touchDown)
-    //    }
-    //    @objc func refreshTableView() {
-    //        getCatBreeds.loadCatBreeds { [weak self] catBreeds in
-    //            self?.catBreeds = catBreeds
-    //            self?.tableView.reloadData()
-    //        }
-    //    }
+    
 }
 // add extension UISearchResultsUpdating
 extension CatBreedsTableViewController: UISearchResultsUpdating {
