@@ -1,3 +1,5 @@
+# FunnyCats
+
 Let me introduce mobile iOS app written on Swift language.</br>
 This app divided on 3 part by Tap menu.</br>
 1-st part is the table with breeds of cats what load from API https://thecatapi.com</br>
