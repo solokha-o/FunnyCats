@@ -9,4 +9,4 @@ You can choose the breed and see information of it in Wikipedia.</br>
 
 ![d1acf0aeeff7600836b6088309e3deea0f28d635](https://user-images.githubusercontent.com/15982074/111184459-acd4c000-85b9-11eb-8789-f6aa003669dc.gif)
 
-MIT-Licanse.
+MIT-License.
