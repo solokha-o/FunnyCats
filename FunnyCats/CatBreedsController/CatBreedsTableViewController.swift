@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 class CatBreedsTableViewController: UITableViewController {
     
@@ -26,15 +27,41 @@ class CatBreedsTableViewController: UITableViewController {
     // create activity indicator
     var activityIndicator = UIActivityIndicatorView()
     
+    var subscriptions = Set<AnyCancellable>() //instance is used for to load data
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavigationBar()
-        getCatBreeds.loadCatBreeds { [weak self] catBreeds in
-            self?.catBreeds = catBreeds
-            self?.tableView.reloadData()
-            self?.activityIndicator.stopAnimating()
-            self?.tableView.backgroundView = nil
-        }
+        //        getCatBreeds.loadCatBreeds { [weak self] catBreeds in
+        //            self?.catBreeds = catBreeds
+        //            self?.tableView.reloadData()
+        //            self?.activityIndicator.stopAnimating()
+        //            self?.tableView.backgroundView = nil
+        //        }
+        //issue was configured that data was loaded by using Combine
+
+        DataLoader.loadData(link: Constant.linkLoadCatBreeds).sink(receiveCompletion: { completion in
+            
+            switch completion {
+                case .finished:
+                    print("finished") // not printing
+                    break
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }) { [weak self] (catBreeds: [CatBreedsDataBaseModel]) in
+            
+            guard let self = self else { return }
+            
+            self.catBreeds = catBreeds
+            
+            self.tableView.reloadData()
+            self.tableView.backgroundView = nil
+            
+            self.activityIndicator.stopAnimating()
+        }.store(in: &subscriptions)
+        
         // configure searchBar
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = true
@@ -68,12 +95,12 @@ class CatBreedsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         switch isFiltering {
-        case true:
-            cell.textLabel?.text = filteredCatBreeds[indexPath.row].name
-            cell.detailTextLabel?.text = "Country of Origin - " + filteredCatBreeds[indexPath.row].origin
-        case false:
-            cell.textLabel?.text = catBreeds[indexPath.row].name
-            cell.detailTextLabel?.text = "Country of Origin - " + catBreeds[indexPath.row].origin
+            case true:
+                cell.textLabel?.text = filteredCatBreeds[indexPath.row].name
+                cell.detailTextLabel?.text = "Country of Origin - " + filteredCatBreeds[indexPath.row].origin
+            case false:
+                cell.textLabel?.text = catBreeds[indexPath.row].name
+                cell.detailTextLabel?.text = "Country of Origin - " + catBreeds[indexPath.row].origin
         }
         cell.accessoryType = .disclosureIndicator
         return cell
@@ -83,12 +110,12 @@ class CatBreedsTableViewController: UITableViewController {
         var urlCatBreed : String
         var catBreed : String
         switch isFiltering {
-        case true:
-            urlCatBreed = filteredCatBreeds[indexPath.row].wikipediaURL ?? "https://google.com"
-            catBreed = filteredCatBreeds[indexPath.row].name
-        case false:
-            urlCatBreed = catBreeds[indexPath.row].wikipediaURL ?? "https://google.com"
-            catBreed = catBreeds[indexPath.row].name
+            case true:
+                urlCatBreed = filteredCatBreeds[indexPath.row].wikipediaURL ?? "https://google.com"
+                catBreed = filteredCatBreeds[indexPath.row].name
+            case false:
+                urlCatBreed = catBreeds[indexPath.row].wikipediaURL ?? "https://google.com"
+                catBreed = catBreeds[indexPath.row].name
         }
         guard let detailCatBreedVC = storyboard?.instantiateViewController(identifier: "DetailCatBreedViewController") as? DetailCatBreedViewController else { return }
         //show in detail view controller cat breed from url wikipedia
@@ -122,6 +149,20 @@ class CatBreedsTableViewController: UITableViewController {
         activityIndicator.hidesWhenStopped = true
     }
     
+    //load data
+    func loadData() {
+        DataLoader.loadData(link: Constant.linkLoadCatBreeds).sink(receiveCompletion: { completion in
+            switch completion {
+                case .finished:
+                    print("finished") // not printing
+                    break
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }) { [weak self] catBreeds in
+            self?.catBreeds = catBreeds
+        }.store(in: &subscriptions)
+    }
 }
 // add extension UISearchResultsUpdating
 extension CatBreedsTableViewController: UISearchResultsUpdating {

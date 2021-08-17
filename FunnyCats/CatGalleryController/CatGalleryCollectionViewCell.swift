@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 class CatGalleryCollectionViewCell: UICollectionViewCell {
     
@@ -17,6 +18,8 @@ class CatGalleryCollectionViewCell: UICollectionViewCell {
     // photo instance
     var photo : UIImageView?
     
+    var subscriptions = Set<AnyCancellable>() //instance is used for to load data
+    
     @IBOutlet weak var catImageView: UIImageView!
     // get photo cat from request and set to catImageView
     func set(catBreed: CatBreedsDataBaseModel) {
@@ -25,10 +28,12 @@ class CatGalleryCollectionViewCell: UICollectionViewCell {
             if !guessCat[0].url.isEmpty {
                 DispatchQueue.main.async {
                     guard let url = URL(string: guessCat[0].url) else { return }
-                    self?.catImageView.load(url: url)
-                    DispatchQueue.main.async {
-                        self?.photo = self?.catImageView
-                    }
+                   
+                    //issue was configured that image was loaded by using Combine
+                    ImageLoader.shared.publisher(for: url).sink { (image) in
+                        self?.catImageView.image = image
+                        
+                    }.store(in: &self!.subscriptions)
                 }
             }
         }

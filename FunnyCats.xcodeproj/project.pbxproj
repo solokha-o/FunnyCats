@@ -17,6 +17,7 @@
 		DB6344C82459CFD2004E2FA4 /* CatBreedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344C72459CFD2004E2FA4 /* CatBreedsTableViewController.swift */; };
 		DB6344CE2459D507004E2FA4 /* CatBreedsDataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344CD2459D507004E2FA4 /* CatBreedsDataBaseModel.swift */; };
 		DB6344D02459E2AF004E2FA4 /* GetCatBreedsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344CF2459E2AF004E2FA4 /* GetCatBreedsRequest.swift */; };
+		DB6C5E7E26C8139E0026E7F6 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6C5E7D26C8139E0026E7F6 /* DataLoader.swift */; };
 		DB88C8922461B4BB005F0350 /* CatGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88C8912461B4BB005F0350 /* CatGalleryCollectionViewCell.swift */; };
 		DB89B61D2464881600E08CC5 /* DetailCatPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB89B61C2464881600E08CC5 /* DetailCatPhotoViewController.swift */; };
 		DB9E38252461A72800303D71 /* CatGalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E38242461A72800303D71 /* CatGalleryCollectionViewController.swift */; };
@@ -26,6 +27,7 @@
 		DBD5A2C7245C77E400330D3C /* GuessCatDataBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD5A2C6245C77E400330D3C /* GuessCatDataBaseModel.swift */; };
 		DBF08663245D485900351513 /* GuessCatRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF08662245D485900351513 /* GuessCatRequest.swift */; };
 		DBF08665245D571500351513 /* LoadCatImageReguest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF08664245D571500351513 /* LoadCatImageReguest.swift */; };
+		DBF96BBF26C2BA6700A13EB7 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF96BBE26C2BA6700A13EB7 /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,7 @@
 		DB6344C72459CFD2004E2FA4 /* CatBreedsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedsTableViewController.swift; sourceTree = "<group>"; };
 		DB6344CD2459D507004E2FA4 /* CatBreedsDataBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreedsDataBaseModel.swift; sourceTree = "<group>"; };
 		DB6344CF2459E2AF004E2FA4 /* GetCatBreedsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCatBreedsRequest.swift; sourceTree = "<group>"; };
+		DB6C5E7D26C8139E0026E7F6 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		DB88C8912461B4BB005F0350 /* CatGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB89B61C2464881600E08CC5 /* DetailCatPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCatPhotoViewController.swift; sourceTree = "<group>"; };
 		DB9E38242461A72800303D71 /* CatGalleryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatGalleryCollectionViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 		DBD5A2C6245C77E400330D3C /* GuessCatDataBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessCatDataBaseModel.swift; sourceTree = "<group>"; };
 		DBF08662245D485900351513 /* GuessCatRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessCatRequest.swift; sourceTree = "<group>"; };
 		DBF08664245D571500351513 /* LoadCatImageReguest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCatImageReguest.swift; sourceTree = "<group>"; };
+		DBF96BBE26C2BA6700A13EB7 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 				DBD5A2C6245C77E400330D3C /* GuessCatDataBaseModel.swift */,
 				DBF08662245D485900351513 /* GuessCatRequest.swift */,
 				DBF08664245D571500351513 /* LoadCatImageReguest.swift */,
+				DBF96BBE26C2BA6700A13EB7 /* ImageLoader.swift */,
+				DB6C5E7D26C8139E0026E7F6 /* DataLoader.swift */,
 			);
 			path = GuessCatController;
 			sourceTree = "<group>";
@@ -215,6 +221,8 @@
 				DBD5A2C5245C62AF00330D3C /* GuessCatViewController.swift in Sources */,
 				DB6344D02459E2AF004E2FA4 /* GetCatBreedsRequest.swift in Sources */,
 				DBD5A2C7245C77E400330D3C /* GuessCatDataBaseModel.swift in Sources */,
+				DB6C5E7E26C8139E0026E7F6 /* DataLoader.swift in Sources */,
+				DBF96BBF26C2BA6700A13EB7 /* ImageLoader.swift in Sources */,
 				DB9E38252461A72800303D71 /* CatGalleryCollectionViewController.swift in Sources */,
 				DBF08663245D485900351513 /* GuessCatRequest.swift in Sources */,
 				DB6344B82459B8C4004E2FA4 /* FunnyCats.xcdatamodeld in Sources */,

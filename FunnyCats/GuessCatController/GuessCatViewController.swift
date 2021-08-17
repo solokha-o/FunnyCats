@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 class GuessCatViewController: UIViewController {
     
@@ -22,14 +23,14 @@ class GuessCatViewController: UIViewController {
         
         var answerLabel: String {
             switch self {
-            case .trueAnswer: return "You are right 👍"
-            case .falseAnswer: return "You are wrong 👎"
+                case .trueAnswer: return "You are right 👍"
+                case .falseAnswer: return "You are wrong 👎"
             }
         }
         var colorButton: UIColor {
             switch self {
-            case .trueAnswer: return .green
-            case .falseAnswer: return .red
+                case .trueAnswer: return .green
+                case .falseAnswer: return .red
             }
         }
     }
@@ -51,6 +52,8 @@ class GuessCatViewController: UIViewController {
     //instanсe count score right answer
     var score = 0
     
+    var subscriptions = Set<AnyCancellable>() //instance is used for to load data
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // call setup and configure function
@@ -63,23 +66,19 @@ class GuessCatViewController: UIViewController {
             self?.loadImageCatBreed(catBreeds: catBreeds)
         }
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
     // configure answer buttons
     @IBAction func answerButtonAction(_ sender: UIButton) {
         var ansverIsRight : Bool {
             return sender.titleLabel?.text == catBreeds[indexCatBreeds].name
         }
         switch ansverIsRight {
-        case true:
-            sender.backgroundColor = trueAnswer.colorButton
-            checkAnswerLable.text = trueAnswer.answerLabel
-            score += 1
-        case false:
-            sender.backgroundColor = falseAnswer.colorButton
-            checkAnswerLable.text = falseAnswer.answerLabel
+            case true:
+                sender.backgroundColor = trueAnswer.colorButton
+                checkAnswerLable.text = trueAnswer.answerLabel
+                score += 1
+            case false:
+                sender.backgroundColor = falseAnswer.colorButton
+                checkAnswerLable.text = falseAnswer.answerLabel
         }
         answerButtonsOutlet[0].isEnabled = false
         answerButtonsOutlet[1].isEnabled = false
@@ -123,7 +122,12 @@ class GuessCatViewController: UIViewController {
                 self?.guessCat = guessCat
                 if !guessCat[0].url.isEmpty {
                     guard let url = URL(string: guessCat[0].url) else { return }
-                    self?.catImageView.load(url: url)
+                    
+                    //issue was configured that image was loaded by using Combine
+                    ImageLoader.shared.publisher(for: url).sink { (image) in
+                        self?.catImageView.image = image
+                    }.store(in: &self!.subscriptions)
+                    
                     self?.activityIndicator.stopAnimating()
                 }
                 
