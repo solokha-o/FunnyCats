@@ -27,8 +27,8 @@ class CatBreedsTableViewController: UITableViewController {
     // create activity indicator
     var activityIndicator = UIActivityIndicatorView()
     
-    var subscriptions = Set<AnyCancellable>() //instance is used for to load data
-    
+    private var subscriptions = Set<AnyCancellable>() //instance is used for to load data
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         configNavigationBar()
@@ -40,28 +40,8 @@ class CatBreedsTableViewController: UITableViewController {
         //        }
         //issue was configured that data was loaded by using Combine
 
-        DataLoader.loadData(link: Constant.linkLoadCatBreeds).sink(receiveCompletion: { completion in
-            
-            switch completion {
-                case .finished:
-                    print("finished") // not printing
-                    break
-                    
-                case .failure(let error):
-                    print(error.localizedDescription)
-            }
-        }) { [weak self] (catBreeds: [CatBreedsDataBaseModel]) in
-            
-            guard let self = self else { return }
-            
-            self.catBreeds = catBreeds
-            
-            self.tableView.reloadData()
-            self.tableView.backgroundView = nil
-            
-            self.activityIndicator.stopAnimating()
-        }.store(in: &subscriptions)
-        
+        loadData()
+        refreshTableView()
         // configure searchBar
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = true
@@ -150,18 +130,43 @@ class CatBreedsTableViewController: UITableViewController {
     }
     
     //load data
-    func loadData() {
+    @objc private func loadData() {
         DataLoader.loadData(link: Constant.linkLoadCatBreeds).sink(receiveCompletion: { completion in
+            
             switch completion {
                 case .finished:
                     print("finished") // not printing
                     break
+                    
                 case .failure(let error):
                     print(error.localizedDescription)
             }
-        }) { [weak self] catBreeds in
-            self?.catBreeds = catBreeds
+        }) { [weak self] (catBreeds: [CatBreedsDataBaseModel]) in
+            
+            guard let self = self else { return }
+            
+            self.catBreeds = catBreeds
+            
+            self.tableView.reloadData()
+            self.tableView.backgroundView = nil
+            
+            self.activityIndicator.stopAnimating()
+            
+            self.refreshControl?.endRefreshing()
+            
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(catBreeds) {
+                UserDefaults.standard.set(encoded, forKey: "catBreeds")
+            }
+            
         }.store(in: &subscriptions)
+    }
+    //refresh tableView
+    private func refreshTableView() {
+        let refreshControl = UIRefreshControl()
+        self.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
+        tableView.addSubview(refreshControl)
     }
 }
 // add extension UISearchResultsUpdating

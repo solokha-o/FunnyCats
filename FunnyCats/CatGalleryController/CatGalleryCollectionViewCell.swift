@@ -11,31 +11,22 @@ import Combine
 
 class CatGalleryCollectionViewCell: UICollectionViewCell {
     
-    //add instance of GuessCatRequest
-    let guessCatRequest = GuessCatRequest()
-    //create instance guess cat model
-    var guessCat = [GuessCatDataBaseModel]()
-    // photo instance
-    var photo : UIImageView?
-    
     var subscriptions = Set<AnyCancellable>() //instance is used for to load data
     
     @IBOutlet weak var catImageView: UIImageView!
-    // get photo cat from request and set to catImageView
+    // get photo using Combine
     func set(catBreed: CatBreedsDataBaseModel) {
-        guessCatRequest.loadCat(breedId: catBreed.id) { [weak self] guessCat in
-            self?.guessCat = guessCat
-            if !guessCat[0].url.isEmpty {
-                DispatchQueue.main.async {
-                    guard let url = URL(string: guessCat[0].url) else { return }
-                   
-                    //issue was configured that image was loaded by using Combine
-                    ImageLoader.shared.publisher(for: url).sink { (image) in
-                        self?.catImageView.image = image
-                        
-                    }.store(in: &self!.subscriptions)
-                }
-            }
+        
+        if let link = catBreed.image?.url, let url = URL(string: link) {
+            
+            //issue was configured that image was loaded by using Combine
+            ImageLoader.shared.publisher(for: url).sink { [weak self] (image) in
+                
+                guard let self = self else { return }
+                
+                self.catImageView.image = image
+                
+            }.store(in: &self.subscriptions)
         }
     }
 }

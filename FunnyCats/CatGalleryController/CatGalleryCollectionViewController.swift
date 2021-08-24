@@ -15,7 +15,7 @@ class CatGalleryCollectionViewController: UICollectionViewController {
     var catBreeds = [CatBreedsDataBaseModel]()
     // add instance of GetCatBreedsRequest
     let getCatBreeds = GetCatBreedsRequest()
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // call setup and configuration function
@@ -29,7 +29,7 @@ class CatGalleryCollectionViewController: UICollectionViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-        
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return catBreeds.count
     }
@@ -57,15 +57,14 @@ class CatGalleryCollectionViewController: UICollectionViewController {
         guard let catGalleryCVC = collectionView.cellForItem(at: indexPath) as? CatGalleryCollectionViewCell, let detailCatPhotoVC = storyboard?.instantiateViewController(identifier: "DetailCatPhotoViewController") as? DetailCatPhotoViewController else { return }
         _ = detailCatPhotoVC.view
         detailCatPhotoVC.nameCatBreedLable.text = catBreeds[indexPath.row].name
-        detailCatPhotoVC.photoImageView.image = catGalleryCVC.photo?.image
+        detailCatPhotoVC.photoImageView.image = catGalleryCVC.catImageView.image
         showDetailViewController(detailCatPhotoVC, sender: nil)
     }
     //cancel task hidden cell
-    override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let catGalleryCVC = collectionView.cellForItem(at: indexPath) as? CatGalleryCollectionViewCell else { return }
-        catGalleryCVC.guessCatRequest.session.invalidateAndCancel()
-    }
-   
+//    override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        guard let catGalleryCVC = collectionView.cellForItem(at: indexPath) as? CatGalleryCollectionViewCell else { return }
+//    }
+    
     // configure NavigationBar
     func configNavigationBar() {
         navigationItem.title = "Cats Photo Gallety"
@@ -75,9 +74,11 @@ class CatGalleryCollectionViewController: UICollectionViewController {
     }
     // load array catBreeds
     func loadCatBreeds() {
-        self.getCatBreeds.loadCatBreeds { [weak self] catBreeds in
-            self?.catBreeds = catBreeds
-            self?.collectionView.reloadData()
+        let decoder = JSONDecoder()
+        if let decoded = UserDefaults.standard.object(forKey: "catBreeds") as? Data {
+            if let catBreeds = try? decoder.decode([CatBreedsDataBaseModel].self, from: decoded) {
+                self.catBreeds = catBreeds
+            }
         }
     }
     //setup flow layout to collection view

@@ -28,6 +28,7 @@ struct CatBreedsDataBaseModel: Codable {
     let wikipediaURL: String?
     let hypoallergenic: Int
     let catFriendly, bidability: Int?
+    let image: Image?
     
     enum CodingKeys: String, CodingKey {
         case weight, id, name
@@ -52,7 +53,7 @@ struct CatBreedsDataBaseModel: Codable {
         case sheddingLevel = "shedding_level"
         case socialNeeds = "social_needs"
         case strangerFriendly = "stranger_friendly"
-        case vocalisation, experimental, hairless, natural, rare, rex
+        case vocalisation, experimental, hairless, natural, rare, rex, image
         case suppressedTail = "suppressed_tail"
         case shortLegs = "short_legs"
         case wikipediaURL = "wikipedia_url"
@@ -65,6 +66,13 @@ struct CatBreedsDataBaseModel: Codable {
 // MARK: - Weight
 struct Weight: Codable {
     let imperial, metric: String
+}
+// MARK: - Image
+struct Image: Codable {
+    let height: Int?
+    let id: String?
+    let url: String?
+    let width: Int?
 }
 
 typealias CatBreeds = [CatBreedsDataBaseModel]
