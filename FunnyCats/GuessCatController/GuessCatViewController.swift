@@ -61,10 +61,8 @@ class GuessCatViewController: UIViewController {
         setupController()
         configActivityIndicator()
         //load cat breeds
-        self.getCatBreeds.loadCatBreeds { [weak self] catBreeds in
-            self?.catBreeds = catBreeds
-            self?.loadImageCatBreed(catBreeds: catBreeds)
-        }
+        loadCatBreeds()
+        loadImageCat(catBreed: randomBreed(catBreeds: catBreeds))
     }
     // configure answer buttons
     @IBAction func answerButtonAction(_ sender: UIButton) {
@@ -86,7 +84,7 @@ class GuessCatViewController: UIViewController {
     }
     // configure next question button by use random breed
     @IBAction func nextQuestionButtonAction(_ sender: UIButton) {
-        loadImageCatBreed(catBreeds: self.catBreeds)
+        loadImageCat(catBreed: randomBreed(catBreeds: catBreeds))
         answerButtonsOutlet[0].backgroundColor = .systemTeal
         answerButtonsOutlet[1].backgroundColor = .systemTeal
         checkAnswerLable.text = "Let's do it!"
@@ -100,10 +98,10 @@ class GuessCatViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = .systemTeal
     }
     // random cat breed id
-    func randomBreed(catBreeds: [CatBreedsDataBaseModel]) -> String {
+    func randomBreed(catBreeds: [CatBreedsDataBaseModel]) -> CatBreedsDataBaseModel {
         let randomBreed = Int.random(in: catBreeds.indices)
         indexCatBreeds = randomBreed
-        let breedId = catBreeds[randomBreed].id
+        let breed = catBreeds[randomBreed]
         // setup title answerButtonsOutlet
         let index = Int.random(in: 0...1)
         answerButtonsOutlet[index].setTitle(catBreeds[randomBreed].name, for: .normal)
@@ -112,26 +110,34 @@ class GuessCatViewController: UIViewController {
                 answerButton.setTitle(catBreeds[Int.random(in: catBreeds.indices)].name, for: .normal)
             }
         }
-        return breedId
+        return breed
     }
-    // load image cat breed
-    func loadImageCatBreed(catBreeds: [CatBreedsDataBaseModel]) {
-        activityIndicator.startAnimating()
-        guessCatRequest.loadCat(breedId: randomBreed(catBreeds: catBreeds)) { [weak self] guessCat in
-            DispatchQueue.main.async {
-                self?.guessCat = guessCat
-                if !guessCat[0].url.isEmpty {
-                    guard let url = URL(string: guessCat[0].url) else { return }
-                    
-                    //issue was configured that image was loaded by using Combine
-                    ImageLoader.shared.publisher(for: url).sink { (image) in
-                        self?.catImageView.image = image
-                    }.store(in: &self!.subscriptions)
-                    
-                    self?.activityIndicator.stopAnimating()
-                }
-                
+    // load array catBreeds
+    func loadCatBreeds() {
+        let decoder = JSONDecoder()
+        if let decoded = UserDefaults.standard.object(forKey: "catBreeds") as? Data {
+            if let catBreeds = try? decoder.decode([CatBreedsDataBaseModel].self, from: decoded) {
+                self.catBreeds = catBreeds
             }
+        }
+    }
+    // get photo using Combine
+    func loadImageCat(catBreed: CatBreedsDataBaseModel) {
+        
+        activityIndicator.startAnimating()
+        
+        if let link = catBreed.image?.url, let url = URL(string: link) {
+            
+            //issue was configured that image was loaded by using Combine
+            ImageLoader.shared.publisher(for: url).sink { [weak self] (image) in
+                
+                guard let self = self else { return }
+                
+                self.catImageView.image = image
+                
+            }.store(in: &self.subscriptions)
+            
+            self.activityIndicator.stopAnimating()
         }
     }
     // configure controller
