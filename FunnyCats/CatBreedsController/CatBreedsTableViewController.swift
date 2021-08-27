@@ -87,20 +87,19 @@ class CatBreedsTableViewController: UITableViewController {
     }
     // configure didSelectRowAt
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var urlCatBreed : String
-        var catBreed : String
+      
+        var selectedCatBreed : CatBreedsDataBaseModel
+        
         switch isFiltering {
             case true:
-                urlCatBreed = filteredCatBreeds[indexPath.row].wikipediaURL ?? "https://google.com"
-                catBreed = filteredCatBreeds[indexPath.row].name
+                selectedCatBreed = filteredCatBreeds[indexPath.row]
             case false:
-                urlCatBreed = catBreeds[indexPath.row].wikipediaURL ?? "https://google.com"
-                catBreed = catBreeds[indexPath.row].name
+                selectedCatBreed = catBreeds[indexPath.row]
         }
+        
         guard let detailCatBreedVC = storyboard?.instantiateViewController(identifier: "DetailCatBreedViewController") as? DetailCatBreedViewController else { return }
         //show in detail view controller cat breed from url wikipedia
-        detailCatBreedVC.getUrl = urlCatBreed
-        detailCatBreedVC.navigationItemTitle = catBreed
+        detailCatBreedVC.catBreed = selectedCatBreed
         show(detailCatBreedVC, sender: nil)
     }
     // func for filter Content For Search Text

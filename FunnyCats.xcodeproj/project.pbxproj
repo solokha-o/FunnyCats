@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB2E9BB226D8044000298AAF /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E9BB126D8044000298AAF /* LocationManager.swift */; };
 		DB6344AE2459B8C4004E2FA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344AD2459B8C4004E2FA4 /* AppDelegate.swift */; };
 		DB6344B02459B8C4004E2FA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6344AF2459B8C4004E2FA4 /* SceneDelegate.swift */; };
 		DB6344B52459B8C4004E2FA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6344B32459B8C4004E2FA4 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB2E9BB126D8044000298AAF /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DB6344AA2459B8C4004E2FA4 /* FunnyCats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnyCats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6344AD2459B8C4004E2FA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6344AF2459B8C4004E2FA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				DB6344CD2459D507004E2FA4 /* CatBreedsDataBaseModel.swift */,
 				DB6344CF2459E2AF004E2FA4 /* GetCatBreedsRequest.swift */,
 				DBD5A2BE245B637A00330D3C /* DetailCatBreedViewController.swift */,
+				DB2E9BB126D8044000298AAF /* LocationManager.swift */,
 			);
 			path = CatBreedsController;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				DB6C5E7E26C8139E0026E7F6 /* DataLoader.swift in Sources */,
 				DBF96BBF26C2BA6700A13EB7 /* ImageLoader.swift in Sources */,
 				DB9E38252461A72800303D71 /* CatGalleryCollectionViewController.swift in Sources */,
+				DB2E9BB226D8044000298AAF /* LocationManager.swift in Sources */,
 				DBF08663245D485900351513 /* GuessCatRequest.swift in Sources */,
 				DB6344B82459B8C4004E2FA4 /* FunnyCats.xcdatamodeld in Sources */,
 				DBF08665245D571500351513 /* LoadCatImageReguest.swift in Sources */,
